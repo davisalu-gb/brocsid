@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat em Tempo Real com Firebase</title>
+    <link rel="stylesheet" href="chat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <div id="sidebar">
+        <h2>Salas</h2>
+        <div id="rooms-list"></div>
+            <!-- Botão "+" para adicionar novas salas -->
+    <div id="add-room-btn" class="add-room-button">+</div>
+
+    </div>
+
+    <!-- Área principal -->
+    <div id="main">
+        <div id="channels-container">
+            <div id="room-info">
+                <h2 id="room-name">Nome da Sala</h2>
+                <p id="room-id">ID da Sala</p>
+            </div>
+
+            <!-- Formulário para criação de canal -->
+            <form id="create-channel-form">
+                <input type="text" id="channel-name" placeholder="Nome do Canal" required minlength="3" aria-label="Nome do Canal">
+                <button type="submit">Criar Canal</button>
+                <p id="create-channel-error" class="error-message" style="display: none;" aria-live="assertive"></p>
+                <p id="create-channel-success" class="success-message" style="display: none;" aria-live="assertive"></p>
+            </form>
+
+            <!-- Lista de canais -->
+            <div id="channels-list"></div>
+        </div>
+        <div id="chat-container">
+            <div class="messages" id="messages"></div>
+            <form id="message-form">
+                <input type="text" id="message-input" placeholder="Digite sua mensagem..." required>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+            <!-- Contêiner para o botão de logout -->
+    <div id="logout-container">
+        <button id="logout-btn">
+            <i class="fas fa-sign-out-alt icon"></i>
+            Sair da Conta
+        </button>
+    </div>
+
+ </div>
+
+    <!-- Modal para feedback -->
+    <div id="feedback-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="feedback-message"></p>
+        </div>
+    </div>
+
+    <!-- Indicador de carregamento -->
+    <div id="loading-indicator">
+        <p>Carregando...</p>
+    </div>
+
+    <!-- Modal para criar ou entrar em uma sala -->
+    <div id="room-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Criar ou Entrar em Sala</h2>
+            <!-- Formulário para criação de sala -->
+            <form id="create-room-form-modal">
+                <label for="room-name-modal">Nome da Sala:</label>
+                <input type="text" id="room-name-modal" placeholder="Nome da Sala" required minlength="3">
+                <button type="submit">Criar Sala</button>
+                <p id="create-room-error-modal" class="error-message" style="display: none;"></p>
+                <p id="create-room-success-modal" class="success-message" style="display: none;"></p>
+            </form>
+
+            <!-- Formulário para entrar em uma sala -->
+            <form id="join-room-form-modal">
+                <label for="room-code-modal">Código da Sala:</label>
+                <input type="text" id="room-code-modal" placeholder="Código da Sala" required pattern="[A-Z0-9]{6}">
+                <button type="submit">Entrar na Sala</button>
+                <p id="join-room-error-modal" class="error-message" style="display: none;"></p>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Inclua os SDKs do Firebase -->
+    <script type="module" src="chat.js"></script>
+</body>
+</html>

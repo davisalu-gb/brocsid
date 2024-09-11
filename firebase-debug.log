@@ -1,0 +1,42 @@
+[debug] [2024-09-11T22:17:56.112Z] ----------------------------------------------------------------------
+[debug] [2024-09-11T22:17:56.114Z] Command:       C:\Users\GB\DOWNLO~1\firebase-tools-instant-win.exe C:\Users\GB\.cache\firebase\tools\lib\node_modules\firebase-tools\lib\bin\firebase init hosting
+[debug] [2024-09-11T22:17:56.114Z] CLI Version:   13.16.0
+[debug] [2024-09-11T22:17:56.114Z] Platform:      win32
+[debug] [2024-09-11T22:17:56.114Z] Node Version:  v18.5.0
+[debug] [2024-09-11T22:17:56.115Z] Time:          Wed Sep 11 2024 19:17:56 GMT-0300 (GMT-03:00)
+[debug] [2024-09-11T22:17:56.115Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-09-11T22:17:56.122Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-09-11T22:17:56.123Z] > authorizing via signed-in user (davisalulu@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\GB\Desktop\brocsid
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-09-11T22:18:04.757Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2024-09-11T22:18:05.755Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2024-09-11T22:18:05.755Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project brocsid (Brocsid) 
+[info] 
+=== Hosting Setup
+[debug] [2024-09-11T22:18:08.310Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/brocsid [none]
+[debug] [2024-09-11T22:18:08.852Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/brocsid 200
+[debug] [2024-09-11T22:18:08.853Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/brocsid {"projectId":"brocsid","projectNumber":"249061884015","displayName":"Brocsid","name":"projects/brocsid","resources":{"hostingSite":"brocsid","realtimeDatabaseInstance":"brocsid-default-rtdb"},"state":"ACTIVE","etag":"1_bb7acd01-4fa4-444a-8705-a783b146b928"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 

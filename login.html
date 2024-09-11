@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="z-verificaçao-login.js"></script>
+
+  
+  
+  <style>
+    input[type="text"],
+    input[type="password"], 
+    input[type="email"] {
+      width: calc(100% - 22px);
+      color: rgb(255, 255, 255);
+      outline: none; /* Remove a borda padrão */
+      height: 40px;
+      padding: 10px;
+      width: 416px;
+      background-color: transparent; /* Define um fundo transparente */
+    }
+  
+    a,
+    button,
+    input,
+    select, h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      border: none;
+      text-decoration: none;
+      appearance: none;
+      background: none;
+      -webkit-font-smoothing: antialiased;
+    }
+  
+    .login,
+    .login * {
+      box-sizing: border-box;
+    }
+  
+    .login {
+      display: flex;
+      flex-direction: row;
+      gap: 0px;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      min-width: 500px;
+      min-height: 580px;
+      position: fixed;
+      overflow: hidden;
+    }
+  
+    .image-1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    object-fit: cover;
+    z-index: -1;
+
+    filter: hue-rotate(20deg) saturate(60%) contrast(120%);
+}
+
+  
+    .frame-43 {
+      padding: 20px 65px; /* Adiciona espaço interno de 20px nas partes superior e inferior, e 65px nas laterais */
+      display: flex; /* Ativa o Flexbox para o layout */
+      flex-direction: column; /* Organiza os itens em uma coluna vertical */
+      gap: 20px; /* Espaço entre os itens flexíveis */
+      align-items: center; /* Centraliza os itens horizontalmente no centro do contêiner */
+      justify-content: center; /* Centraliza os itens verticalmente no centro do contêiner */
+      flex-shrink: 0; /* Impede que o contêiner encolha se necessário */
+      width: 480px; /* Largura fixa do contêiner */
+      height: 400px; /* Altura fixa do contêiner */
+      background-color: #313338;
+      position: absolute; /* Permite posicionar elementos filhos de forma relativa */
+      border-radius: 10px;
+      z-index: 1; /* Garante que a imagem fique sobre outros conteúdos */
+    }
+  
+    h5 {
+      color: #7f848b;
+    }
+  
+    a {
+      color: #6c2d91; /* Roxo mais escuro */
+    }
+  
+    .frame-41 {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: flex-start;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+    }
+  
+    .frame-34 {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-shrink: 0;
+      position: relative;
+    }
+  
+    .login2 {
+      color: #ffffff;
+      text-align: center; /* Centraliza o texto dentro do elemento */
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-size: 22px;
+      position: relative;
+      top: 52px;
+      left: 73%; /* Posiciona o elemento no meio da tela horizontalmente */
+      transform: translate(-50%); /* Ajusta a posição para centralizar o elemento */
+    }
+  
+    .group-2 {
+      flex-shrink: 0;
+      width: 308px;
+      height: 54px;
+      position: static;
+    }
+  
+    .entre-com-o-seu-registro {
+      color: #a3a3a3;
+      text-align: center; /* Centraliza o texto dentro do elemento */
+      font-family: "Poppins-Medium", sans-serif;
+      font-size: 15px;
+      position: relative;
+      top: 45px;
+      width: 400px;
+      left: 70%; /* Posiciona o elemento no meio da tela horizontalmente */
+      transform: translate(-50%); /* Ajusta a posição para centralizar o elemento */
+    }
+  
+    .n-o-possui-um-registro {
+      color: #ffffff;
+      text-align: center; /* Centraliza o texto dentro do elemento */
+      font-family: "Poppins-Medium", sans-serif;
+      font-size: 15px;
+      position: relative;
+      top: 314px;
+      left: 125px; /* Posiciona o elemento no meio da tela horizontalmente */
+      transform: translate(-50%); /* Ajusta a posição para centralizar o elemento */
+    }
+  
+    .group-40 {
+      flex-shrink: 0;
+      width: 442px;
+      height: 325px;
+      position: static;
+    }
+  
+    .group-38 {
+      width: 431px;
+      height: 177px;
+      position: static;
+    }
+  
+    .group-37 {
+      width: 429px;
+      height: 64px;
+      position: absolute;
+      left: 2px;
+      top: 139px;
+    }
+  
+    .email {
+      color: #b5bac1;
+      text-align: left;
+      font-family: "Poppins-Medium", sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      position: absolute;
+      left: 8px;
+    }
+  
+    .enter-your-email-address {
+      color: #ffffff;
+      text-align: left;
+      font-family: "Poppins-Regular", sans-serif;
+      background-color: #1e1f22;
+      font-size: 16px;
+      font-weight: 400;
+      left: 10px;
+      position: absolute;
+      top: 20px;
+      height: 40px;
+      width: 416px;
+    }
+  
+    .rectangle-8 {
+      background: #eb0d0d;
+      width: 100%;
+      height: 3.12%;
+      position: absolute;
+      right: 0%;
+      left: 0%;
+      bottom: 0%;
+      top: 96.88%;
+    }
+  
+    .message-1 {
+      width: 3.96%;
+      height: 26.56%;
+      position: absolute;
+      right: 92.07%;
+      left: 3.96%;
+      bottom: 18.75%;
+      top: 54.69%;
+      transform-origin: 0 0;
+      transform: rotate(0deg) scale(-1, 1);
+      overflow: hidden;
+    }
+  
+    .group {
+      height: auto;
+      position: absolute;
+      left: 0px;
+      top: 2.68px;
+      overflow: visible;
+    }
+  
+    .group-36 {
+      width: 431px;
+      height: 64px;
+      position: static;
+    }
+  
+    .senha {
+      color: #b5bac1;
+      text-align: left;
+      font-family: "Poppins-Medium", sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      position: absolute;
+      left: 8px;
+      top: 220px;
+    }
+  
+    .rectangle-9 {
+      background: #ffffff;
+      width: 429px;
+      height: 2px;
+      position: absolute;
+      left: 10px;
+      top: 314px;
+    }
+  
+    .group-35 {
+      width: 165px;
+      height: 24px;
+      position: static;
+    }
+  
+    .senha-do-usu-rio {
+      color: #ffffff;
+      text-align: left;
+      font-family: "Poppins-Regular", sans-serif;
+      font-size: 16px;
+      background-color: #1e1f22;
+      left: 10px;
+      font-weight: 400;
+      position: absolute;
+      width: 416px;
+      height: 40px;
+      top: 243px;
+    }
+  
+    .padlock-1 {
+      width: 17px;
+      height: 17px;
+      position: absolute;
+      left: 0px;
+      top: 285px;
+      overflow: hidden;
+    }
+  
+    .group2 {
+      height: auto;
+      position: absolute;
+      left: 2.37px;
+      top: 0px;
+      overflow: visible;
+    }
+  
+    .group3 {
+      height: auto;
+      position: absolute;
+      left: 7.2px;
+      top: 10.95px;
+      overflow: visible;
+    }
+  
+    .invisible-1 {
+      width: 14px;
+      height: 14px;
+      position: absolute;
+      left: 400px;
+      top: 255px;
+      overflow: hidden;
+    }
+  
+    .group4 {
+      height: auto;
+      position: absolute;
+      left: 0px;
+      top: 0.96px;
+      overflow: visible;
+    }
+  
+    .group-24 {
+      width: 119px;
+      height: 18px;
+      position: static;
+    }
+  
+    .obrigatorio {
+      color: #eb0d0d;
+    }
+  
+    .esqueceu-a-senha {
+      color: #5c2a91; /* Roxo mais escuro */
+      text-align: left;
+      font-family: "Poppins-Light", sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      position: absolute;
+      left: 10px;
+      top: 290px;
+    }
+  
+    .alert {
+      color: #f0f0f0;
+      text-align: left;
+      font-family: "Poppins-Light", sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      position: absolute;
+      top: 323px;
+    }
+  
+    .group-39 {
+      width: 429px;
+      height: 53px;
+      position: static;
+    }
+  
+    .rectangle-10 {
+      background: #5c2a91; /* Roxo mais escuro */
+      border-radius: 4px;
+      width: 429px;
+      height: 43px;
+      position: absolute;
+      left: 10px;
+      top: 322px;
+    }
+  
+    .login3 {
+      color: #ffffff;
+      text-align: left;
+      font-family: "Poppins-Medium", sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      position: absolute;
+      bottom: 81px;
+      left: 50%;
+      transform: translate(-50%, -60%);
+    }
+  
+    .invisible-1 {
+      filter: brightness(10%);
+    }
+  
+    .invisible-1:active {
+      filter: brightness(00%);
+    }
+  
+    .image-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding: 48px; /* Ajuste o padding conforme necessário */
+      z-index: 1; /* Garante que a imagem fique sobre outros conteúdos */
+    }
+  
+    .image-container img {
+      max-width: 200px; /* Ajuste o tamanho da imagem conforme necessário */
+      height: auto;
+      
+  filter: hue-rotate(270deg); /* Ajuste o valor para o tom desejado */
+    }
+  
+    /* Estilo padrão: o .login-container não será exibido */
+    .login-container {
+      background-color: #313338;
+      color: #ffffff;
+      border-top-right-radius: 8px;
+      border-end-end-radius: 8px;
+      height: 400px;
+      padding: 20px;
+      width: 350px;
+      text-align: center;
+      margin: auto;
+      z-index: 0;
+      position: fixed;
+      display: none; /* Inicialmente oculto */
+    }
+  
+    /* Quando a largura da viewport for maior que 800px, o .login-container será exibido */
+    @media (min-width: 831px) {
+      .login-container {
+        margin-left: 800px;
+        display: block; /* Torna o elemento visível */
+      }
+      .login {
+        margin: auto;
+        margin-left: -170px;
+      }
+  
+      body {
+        display: grid;
+        align-items: center; /* Centraliza o conteúdo horizontal e verticalmente */
+        height: 100vh; /* Garante que o body ocupe a altura total da viewport */
+        margin: 0; /* Remove a margem padrão do body */
+      }
+    }
+  
+    .login-container img {
+      width: 100%;
+      max-width: 180px;
+      height: auto;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+  
+    .login-container h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+  
+    .login-container p {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+  
+    .login-container a {
+      color: #5c2a91; /* Roxo mais escuro */
+      text-decoration: none;
+    }
+  
+    .login-container a:hover {
+      text-decoration: underline;
+    }
+  </style>
+   
+
+   </style>
+  <title>Document</title>
+</head>
+<body>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyA_YbgsZqbJRxd7m3cbeJZzmKywctrGLps",
+        authDomain: "ahf-banco-de-dados.firebaseapp.com",
+        databaseURL: "https://ahf-banco-de-dados-default-rtdb.firebaseio.com",
+        projectId: "ahf-banco-de-dados",
+        storageBucket: "ahf-banco-de-dados.appspot.com",
+        messagingSenderId: "826655126765",
+        appId: "1:826655126765:web:ccf2027c0ee964816f88e4",
+        measurementId: "G-01R115DGS7"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const auth = getAuth();
+
+    const emailLogin = document.getElementById('emailLogin');
+    const senhaLogin = document.getElementById('senhaLogin');
+    const loginBtn = document.getElementById('loginBtn');
+    const alertBox = document.getElementById('alertBox');
+
+    function displayAlert(message, type = 'info') {
+        alertBox.innerHTML = `<div class="alert-${type}">${message}</div>`;
+    }
+
+    function clearAlert() {
+        alertBox.innerHTML = '';
+    }
+
+    async function loginUser() {
+    clearAlert();
+    const email = emailLogin.value;
+    const senha = senhaLogin.value;
+
+    try {
+        const userRef = ref(db, 'usuario');
+        const adminRef = ref(db, 'adm');
+
+        const [userSnapshot, adminSnapshot] = await Promise.all([get(userRef), get(adminRef)]);
+
+        // Verificar usuários regulares
+        const userRecord = userSnapshot.exists() 
+            ? Object.entries(userSnapshot.val()).find(([key, u]) => u.email === email && u.senha === senha)
+            : null;
+
+        // Verificar administradores
+        const adminRecord = adminSnapshot.exists() 
+            ? Object.entries(adminSnapshot.val()).find(([key, u]) => u.email === email && u.senha === senha)
+            : null;
+
+        if (userRecord) {
+            const [userID, userData] = userRecord;
+            // Save user data in localStorage
+            localStorage.setItem('user', JSON.stringify({
+                userID: userID, // Use the key as userID
+                email: email,
+                nome: userData.nome,
+                senha: userData.senha,
+                userType: 'regular'
+            }));
+            localStorage.setItem('isAuthenticated', true);
+            displayAlert("Login bem-sucedido como usuário regular!", 'success');
+            emailLogin.value = '';
+            senhaLogin.value = '';
+            window.location.href = "chat.html";
+        } else if (adminRecord) {
+            const [adminID, adminData] = adminRecord;
+            // Save admin data in localStorage
+            localStorage.setItem('user', JSON.stringify({
+                userID: adminID, // Use the key as userID
+                email: email,
+                nome: adminData.nome,
+                senha: adminData.senha,
+                userType: 'admin'
+            }));
+            localStorage.setItem('isAuthenticated', true);
+            displayAlert("Login bem-sucedido como administrador!", 'success');
+            emailLogin.value = '';
+            senhaLogin.value = '';
+            window.location.href = "chat.html";
+        } else {
+            displayAlert("Email ou senha incorretos!", 'error');
+        }
+    } catch (error) {
+        console.error("Erro ao obter dados do banco de dados:", error);
+        displayAlert("Erro ao tentar fazer login. Por favor, tente novamente mais tarde.", 'error');
+    }
+}
+
+    loginBtn.addEventListener('click', loginUser);
+
+    document.getElementById('togglePassword').addEventListener('click', function() {
+        const senhaInput = document.getElementById('senhaLogin');
+        senhaInput.type = senhaInput.type === 'password' ? 'text' : 'password';
+    });
+</script>
+<div class="image-container">
+  <img src="Drocsid.svg" alt="Imagem no canto superior direito">
+</div>
+  <div class="login">
+    <img class="image-1" src="b9995525a52dc58aecf5.svg" />
+    <div class="frame-43">
+      <div class="frame-41">
+        <div class="frame-34">
+          <div class="login2">Boas-vindas de volta!</div>
+          <div class="group-2">
+            <div class="entre-com-o-seu-registro">Estamos muito animados em te ver novamente!</div>
+            <div class="n-o-possui-um-registro"><h5>Precisando de uma conta?<a href="registro.html">Registre-se</a></h5></div>
+          </div>
+        </div>
+        <div class="group-40">
+          <div class="group-38">
+            <div class="group-37">
+              <div class="email"><b>EMAIL OU NUMERO DE TELEFONE<obrigatorio>*</obrigatorio></b></div>
+              <div class="enter-your-email-address"><input type="email" id="emailLogin" name="emailLogin" required></div>
+              
+              <div class="message-1">
+                <svg
+                  class="group"
+                  width="17"
+                  height="13"
+                  viewBox="0 0 17 13"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                </svg>
+              </div>
+            </div>
+            <div class="group-36">
+              <div class="senha"><b>SENHA <obrigatorio>*</obrigatorio></b></div>
+              <div class="group-35">
+                <div class="senha-do-usu-rio"><input type="password" id="senhaLogin" name="senhaLogin" required></div>
+                <div class="padlock-1">
+                  <svg
+                    class="group2"
+                    width="13"
+                    height="17"
+                    viewBox="0 0 13 17"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                  </svg>
+                  <svg
+                    class="group3"
+                    width="3"
+                    height="5"
+                    viewBox="0 0 3 5"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                  </svg>
+                </div>
+              </div>
+              <div class="invisible-1" id="togglePassword">
+                <svg
+                  class="group4"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6.89331 4.78249L8.8974 6.78658L8.90694 6.68161C8.90694 5.62865 8.05124 4.77295 6.99829 4.77295L6.89331 4.78249Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M6.99843 3.50069C8.75439 3.50069 10.1795 4.92583 10.1795 6.6818C10.1795 7.09216 10.0968 7.48343 9.95369 7.84289L11.8146 9.70383C12.7753 8.90219 13.5324 7.86517 14 6.6818C12.8962 3.88881 10.1827 1.91016 6.99846 1.91016C6.10774 1.91016 5.25523 2.0692 4.46313 2.3555L5.83737 3.72654C6.19679 3.58658 6.58807 3.50069 6.99843 3.50069Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M0.636209 1.76699L2.08679 3.21757L2.37628 3.50706C1.32652 4.32778 0.496251 5.41891 0 6.68178C1.10067 9.47477 3.81731 11.4534 6.99842 11.4534C7.98457 11.4534 8.92616 11.2626 9.78825 10.9158L10.0587 11.1862L11.9132 13.044L12.7244 12.236L1.44739 0.955811L0.636209 1.76699ZM4.15452 5.28211L5.13748 6.26507C5.10885 6.40187 5.08976 6.53863 5.08976 6.68178C5.08976 7.73473 5.94547 8.59044 6.99842 8.59044C7.14157 8.59044 7.27837 8.57135 7.41197 8.54272L8.39493 9.52568C7.97183 9.73563 7.50105 9.86289 6.99842 9.86289C5.24245 9.86289 3.81731 8.43775 3.81731 6.68178C3.81731 6.17918 3.94457 5.70837 4.15452 5.28211Z"
+                    fill="white"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="group-24">
+            <div id="alertBox" class="alert" ></div> <!-- Área para exibir alertas -->
+          
+            <div class="esqueceu-a-senha">Esqueceu sua senha?</div>
+          </div>
+          <div class="group-39" id="loginBtn">
+            <div class="rectangle-10"></div>
+            <div class="login3"><b>Entrar</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="login-container">
+      <img src="Discord-qr.svg" alt="Código QR">
+      <h2>Entrar com código QR</h2>
+      <p>Escaneie isto com o app móvel do Discord para fazer login imediatamente.</p>
+      <p>Ou, <a href="#">faça login com a senha</a></p>
+  </div>
+  
+  </div>
+  
+</body>
+</html>
